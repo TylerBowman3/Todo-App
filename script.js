@@ -12,9 +12,9 @@ todoContainer.addEventListener('submit',function(e) {
     let removeBtn = document.createElement('button');
 
     removeBtn.innerText = 'Remove';
-    removeBtn.className = 'remove-bttn';
+    removeBtn.setAttribute('id','remove-bttn');
     completeBtn.innerText = "Done";
-    completeBtn.className = 'done-bttn';
+    completeBtn.setAttribute('id','done-bttn');
     
     li.innerText = input.value;
     li.value = "";
@@ -25,15 +25,21 @@ todoContainer.addEventListener('submit',function(e) {
     
     localStorage.setItem('todoAdded', input.value); 
     }
+    else if (input.value === ''){
+        alert('Please enter a todo');
+    }
     input.value = '';
 });
 
-
-todoList.addEventListener("click", function(event) {
-    const targetClass = event.target.className;
-    if (targetClass === "done-bttn") {
-      event.target.style.textDecoration = "line-through";
-    } else if (targetClass === "remove-bttn") {
-      event.target.parentNode.remove();
+document.addEventListener('click',function(e) {
+    if (e.target.id === 'remove-bttn') {
+        e.target.parentElement.remove();
     }
-  });
+});
+
+document.addEventListener('click',function(e) {
+    if (e.target.id === 'done-bttn') {
+        e.target.parentElement.style.textDecoration = 'line-through';
+    }
+});
+
