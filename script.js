@@ -4,7 +4,7 @@ const todoList = document.querySelector('#todo-list');
 const todoForm = document.querySelector('taskForm');
 
 
-todoContainer.addEventListener('submit',function(e) {
+let adder = todoContainer.addEventListener('submit',function(e) {
     e.preventDefault();
     if (input.value !== ''){
     const li = document.createElement('li');
@@ -40,6 +40,6 @@ document.addEventListener('click',function(e) {
 document.addEventListener('click',function(e) {
     if (e.target.id === 'done-bttn') {
         e.target.parentElement.style.textDecoration = 'line-through';
+        e.target.parentElement.style.textDecorationColor = 'red';
     }
 });
-
