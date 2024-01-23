@@ -29,6 +29,13 @@ todoContainer.addEventListener('submit',function(e) {
         alert('Please enter a todo');
     }
     input.value = '';
+    
+    let savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+    const newTodo = { 
+        todo: input.value
+    }
+    savedTodos.push(newTodo);
+    localStorage.setItem("todos", JSON.stringify(savedTodos));
 });
 
 document.addEventListener('click',function(e) {
