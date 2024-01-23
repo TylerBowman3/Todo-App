@@ -28,7 +28,6 @@ todoContainer.addEventListener('submit',function(e) {
     else if (input.value === ''){
         alert('Please enter a todo');
     }
-    input.value = '';
     
     let savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
     const newTodo = { 
@@ -36,6 +35,8 @@ todoContainer.addEventListener('submit',function(e) {
     }
     savedTodos.push(newTodo);
     localStorage.setItem("todos", JSON.stringify(savedTodos));
+
+    input.value = '';
 });
 
 document.addEventListener('click',function(e) {
