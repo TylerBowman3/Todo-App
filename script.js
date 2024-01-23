@@ -4,7 +4,7 @@ const todoList = document.querySelector('#todo-list');
 const todoForm = document.querySelector('taskForm');
 
 
-let adder = todoContainer.addEventListener('submit',function(e) {
+todoContainer.addEventListener('submit',function(e) {
     e.preventDefault();
     if (input.value !== ''){
     const li = document.createElement('li');
